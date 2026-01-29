@@ -21,6 +21,27 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 
 class Solution {
     public int lengthOfLongestSubstring(String s) {
+        int[] last = new int[128];
+        Arrays.fill(last, -1);
+
+        int minLen = 0, left = 0;
+
+        for (int right=0; right<s.length(); right++) {
+            char c = s.charAt(right);
+
+            if (last[c] >= left) {
+                left = last[c] + 1;
+            }
+            last[c] = right;
+            minLen = Math.max(minLen, right-left+1);
+        }
+        return minLen;
+    }
+}
+
+/* 
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
         Set<Character> set = new HashSet<>();
         int left = 0;
         int maxLen = 0;
@@ -39,6 +60,7 @@ class Solution {
         return maxLen;
     }
 }
+ */
 
 // Time Complexity: O(n)
 // Space Complexity: O(min(m,n)) where m is the size of the charset and n is the length of the string
