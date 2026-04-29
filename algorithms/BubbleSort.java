@@ -19,3 +19,6 @@ public class BubbleSort {
         System.out.println(Arrays.toString(arr));
     }
 }
+
+// Time Complexity: O(n^2)
+// Space Complexity: O(1)
