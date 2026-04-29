@@ -72,3 +72,6 @@ public class BinarySearch {
         System.out.println(searchRecursive(brr, 9));
     }    
 }
+
+// Time Complexity: O(log n)
+// Space Complexity: O(1) for iterative, O(log n) for recursive
