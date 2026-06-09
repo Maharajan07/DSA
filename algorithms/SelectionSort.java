@@ -24,3 +24,6 @@ public class SelectionSort {
         System.out.println(Arrays.toString(brr));
     }
 }
+
+// Time Complexity: O(n^2) in all cases
+// Space Complexity: O(1)
