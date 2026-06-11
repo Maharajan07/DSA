@@ -5,13 +5,21 @@ public class InsertionSort {
         int n = arr.length;
         for (int i=1; i<n; i++) {
             int temp = arr[i];
-            for (int j=i-1; j>=0; j--) {
-                if (arr[j] > temp) {
-                    arr[j+1] = arr[j];
-                    arr[j] = temp;
-                } else 
-                    break;
+            
+            int j = i-1;
+            while (j >= 0 && arr[j] > temp) {
+                arr[j+1] = arr[j];
+                j--;
             }
+            arr[j+1] = temp; 
+
+            // for (int j=i-1; j>=0; j--) {
+            //     if (arr[j] > temp) {
+            //         arr[j+1] = arr[j];
+            //         arr[j] = temp;
+            //     } else 
+            //         break;
+            // }
         }
     }
     public static void main(String[] args) {
