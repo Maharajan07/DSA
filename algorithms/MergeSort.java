@@ -2,43 +2,45 @@ import java.util.Arrays;
 
 public class MergeSort {
 
-    public static int[] sort(int[] arr, int[] brr) {
-        int al = arr.length;
-        int bl = brr.length;
-        int[] crr = new int[al+bl];
-        int i=0, j=0, k=0;
+    public static void sort(int[] arr, int start,int mid, int end) {
+        int l = arr.length;
+        int[] crr = new int[l];
+        int i=start, j=mid, k=start;
 
-        while (i<al && j<bl) {
-            if (arr[i] < brr[j]) {
+        while (i<mid && j<end) {
+            if (arr[i] < arr[j]) {
                 crr[k] = arr[i];
                 i++;
                 k++;
             }
             else {
-                crr[k] = brr[j];
+                crr[k] = arr[j];
                 j++;
                 k++;
             }
         }
 
-        while (i<al) {
+        while (i<mid) {
             crr[k] = arr[i];
             i++;
             k++;
         }
 
-        while (j<bl) {
-            crr[k] = brr[j];
+        while (j<end) {
+            crr[k] = arr[j];
             j++;
             k++;
         }
 
-        return crr;
-    } 
-    public static void main(String[] args) {
-        int[] arr = {2, 6, 7, 9};
-        int[] brr = {1, 3, 4, 5 ,8};
+        for (int itr=0; itr<arr.length; itr++) {
+            arr[itr] = crr[itr];
+        }
+    }
 
-        System.out.println(Arrays.toString(sort(arr, brr)));
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 5, 7, 0, 2, 4, 6};
+        int mid = arr.length/2;
+        sort(arr, 0, mid, arr.length);
+        System.out.println(Arrays.toString(arr));
     }
 }
