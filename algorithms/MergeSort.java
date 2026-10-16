@@ -32,15 +32,23 @@ public class MergeSort {
             k++;
         }
 
-        for (int itr=0; itr<arr.length; itr++) {
+        for (int itr=start; itr<end; itr++) {
             arr[itr] = crr[itr];
         }
     }
 
+    public static void mergeSort(int[] arr, int start, int end) {
+        if (end - start == 1) 
+            return;
+
+        int mid = (start + end) / 2;
+        mergeSort(arr, start, mid);
+        mergeSort(arr, mid, end);
+        sort(arr, start, mid, end);
+    }
     public static void main(String[] args) {
-        int[] arr = {1, 3, 5, 7, 0, 2, 4, 6};
-        int mid = arr.length/2;
-        sort(arr, 0, mid, arr.length);
+        int[] arr = {1, 5, 3, 0, 9, 6};
+        mergeSort(arr, 0, arr.length);
         System.out.println(Arrays.toString(arr));
     }
 }
